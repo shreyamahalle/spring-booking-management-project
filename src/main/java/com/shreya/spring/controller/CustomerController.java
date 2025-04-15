@@ -5,14 +5,22 @@ import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.service.CustomerService;
+import lombok.Setter;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CustomerController {
 
-    private final CustomerService customerService = new CustomerService();
+    private final ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+    // Setter injection
+    //private final CustomerService customerService = (CustomerService) context.getBean("customerService");
+    @Setter
+    private CustomerService customerService;
     private final Scanner sc = new Scanner(System.in);
+
     CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
 

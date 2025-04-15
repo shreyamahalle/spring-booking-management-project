@@ -17,4 +17,6 @@ public class DeliveryAgent {
     private String name;
     private String city;
 
+    public DeliveryAgent(int id, String name, String city, int mobileNo) {
+    }
 }

@@ -12,7 +12,11 @@ import java.util.Scanner;
 
 public class CustomerService {
 
-    private static final CustomerRepository customerRepository = new CustomerRepository();
+    private static CustomerRepository customerRepository = new CustomerRepository();
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     private static final Map<Integer, Customer> customers = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
