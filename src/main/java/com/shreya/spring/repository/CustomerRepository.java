@@ -2,6 +2,8 @@ package com.shreya.spring.repository;
 
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.service.ConnectionService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class CustomerRepository {
 
     private static Connection connection = null;
@@ -28,7 +32,7 @@ public class CustomerRepository {
             preparedStatement.setInt(1, customer.getId());
             preparedStatement.setString(2, customer.getName());
             preparedStatement.setString(3, customer.getCity());
-            preparedStatement.setInt(4, customer.getMobileNo());
+            preparedStatement.setInt(4, Integer.parseInt(customer.getMobileNo()));
             preparedStatement.setInt(4, customer.getAge());
             System.out.println("inserting customer data to table: " + customer);
 
@@ -63,7 +67,9 @@ public class CustomerRepository {
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
 
-                Customer customer = new Customer(id, name, city, mobileNo, age);
+                Customer customer = new Customer(id, name, city, mobileNo, age) {
+
+                };
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -95,7 +101,9 @@ public class CustomerRepository {
                 String city = resultSet.getString("city");
                 int mobileNo = resultSet.getInt("mobileNo");
                 int age = resultSet.getInt("age");
-                customer = new Customer(id, name, city, mobileNo, age);
+                customer = new Customer(id, name, city, mobileNo, age) {
+
+                };
             }
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());

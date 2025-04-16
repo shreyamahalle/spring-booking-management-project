@@ -1,28 +1,28 @@
 package com.shreya.spring.impl;
 
+import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Order;
 import com.shreya.spring.repository.OrderRepository;
-import com.shreya.spring.service.OrderNumberService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+@AllArgsConstructor
+@NoArgsConstructor
+public class CustomerImpl extends Customer {
 
-public class CustomerImpl implements OrderNumberService {
     OrderRepository orderRepository = new OrderRepository();
     HashMap<Integer, Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
-
-    @Override
-    public void createOrderNo() {
-    }
 
     public void printCustomer() {
         //System.out.println(order);
     }
 
-    public void createOrder() {
+    public Order createOrder() {
         Order order = new Order();
         orderRepository.createOrder(order);
         orderRepository.displayOrder(order);
@@ -49,6 +49,7 @@ public class CustomerImpl implements OrderNumberService {
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
+        return order;
     }
 
     public void displayOrder() {

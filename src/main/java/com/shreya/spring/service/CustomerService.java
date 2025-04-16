@@ -3,6 +3,10 @@ package com.shreya.spring.service;
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.repository.CustomerRepository;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -10,15 +14,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class CustomerService {
 
     private static CustomerRepository customerRepository = new CustomerRepository();
+    //private CustomerRepository customerRepository;
+    private final Map<Integer, Customer> customers = new HashMap<>();
+    Scanner sc = new Scanner(System.in);
+
     public void setCustomerRepository(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
-
-    private static final Map<Integer, Customer> customers = new HashMap<>();
-    Scanner sc = new Scanner(System.in);
 
     public static void insertCustomer(Customer customer) throws SQLException {
         customerRepository.addCustomer(customer);
@@ -62,7 +71,9 @@ public class CustomerService {
     }
 
     public void createCustomer() {
-        Customer customer = new Customer();
+        Customer customer = new Customer() {
+
+        };
         customerRepository.createCustomer(customer);
         customerRepository.displayCustomers(customer);
         customerRepository.displayCustomerToBeClosed(1);
@@ -87,7 +98,7 @@ public class CustomerService {
             customer.setAge(age);
             customer.setCity(city);
             customer.setName(name);
-            customer.setMobileNo(mobileNo);
+            customer.setMobileNo(String.valueOf(mobileNo));
             customers.put(1, customer);
 
         } catch (Exception e) {

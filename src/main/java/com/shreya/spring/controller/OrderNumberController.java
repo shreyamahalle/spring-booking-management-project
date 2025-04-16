@@ -14,7 +14,9 @@ public class OrderNumberController {
     OrderNumberService orderNumberService = new OrderNumberImpl();
     OrderService orderService = new OrderService();
     Order order = new Order();
-    private Customer C = new Customer();
+    private Customer C = new Customer() {
+
+    };
     private Scanner sc = new Scanner(System.in);
 
     public void run() {

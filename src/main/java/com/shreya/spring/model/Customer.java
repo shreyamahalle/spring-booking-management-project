@@ -2,16 +2,19 @@ package com.shreya.spring.model;
 
 import lombok.*;
 
-@Getter
+@Data
+@Builder
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Data
-public class Customer {
+public  class Customer {
+
     private int id;
     private String name;
     private String city;
-    private int mobileNo;
+    private String mobileNo;
     private int age;
+
+    public Customer(int id, String name, String city, int mobileNo, int age) {
+    }
 }

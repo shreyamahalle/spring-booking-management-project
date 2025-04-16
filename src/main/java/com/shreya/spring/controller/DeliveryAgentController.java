@@ -10,7 +10,9 @@ import java.util.Scanner;
 public class DeliveryAgentController {
     private final DeliveryAgentService deliveryAgentService = new DeliveryAgentService();
     private final DeliveryAgent deliveryAgent = new DeliveryAgent();
-    private final Customer customer = new Customer();
+    private final Customer customer = new Customer() {
+
+    };
     private final Scanner sc = new Scanner(System.in);
 
     public void run() {

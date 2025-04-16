@@ -5,24 +5,32 @@ import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.service.CustomerService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 
 public class CustomerController {
 
-    private final ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-    // Setter injection
-    //private final CustomerService customerService = (CustomerService) context.getBean("customerService");
-    @Setter
     private CustomerService customerService;
     private final Scanner sc = new Scanner(System.in);
-
+    //CustomerService customerService = new CustomerService();
     CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
+    public CustomerController(CustomerService customerService, CustomerRepository customerRepository) {
+        this.customerService = customerService;
+        this.customerRepository = customerRepository;
+    }
+
 
     public void run() {
         int option;
@@ -53,7 +61,9 @@ public class CustomerController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on Customer");
-                        CustomerService.insertCustomer(new Customer(101, "ABC", "pune", 908547358, 22));
+                        CustomerService.insertCustomer(new Customer(101, "ABC", "pune", 908547358, 22) {
+
+                        });
                         break;
                     case 4:
                         System.out.println("delete Customer");

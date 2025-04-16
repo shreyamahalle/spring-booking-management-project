@@ -2,17 +2,30 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Define your beans here -->
-    <bean id="customerRepository" class="com.shreya.spring.repository.CustomerRepository" />
+<!--    <bean id="customer" class="com.shreya.spring.model.Customer">-->
+<!--        <property name="id" value="101"/>-->
+<!--        <property name="name" value="xzy"/>-->
+<!--        <property name="city" value="pune"/>-->
+<!--        <property name="mobileNo" value="234455"/>-->
+<!--        <property name="age" value="21"/>-->
+<!--    </bean>-->
 
+    <!-- Repository Bean -->
+    <bean id="customerRepository" class="com.shreya.spring.repository.CustomerRepository"/>
+
+    <!-- Service Bean -->
     <bean id="customerService" class="com.shreya.spring.service.CustomerService">
-        <property name="customerRepository" ref="customerRepository" />
+        <property name="customerRepository" ref="customerRepository"/>
     </bean>
 
+    <!-- Controller Bean -->
     <bean id="customerController" class="com.shreya.spring.controller.CustomerController">
-        <property name="customerService" ref="customerService" />
+        <constructor-arg ref="customerService"/>
+        <constructor-arg ref="customerRepository"/>
     </bean>
+
+
 </beans>

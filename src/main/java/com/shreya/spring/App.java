@@ -9,8 +9,7 @@ public class App {
         System.out.println("Starting Spring Application with XML config...");
 
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-
-        CustomerController controller = (CustomerController) context.getBean("customerController");
+        CustomerController controller = context.getBean("customerController", CustomerController.class);
         controller.run();
     }
 }
