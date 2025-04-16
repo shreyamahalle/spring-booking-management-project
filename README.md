@@ -77,11 +77,11 @@ Before you begin, ensure you have the following:
 
 ## **💡Steps to Get Started**
 
-1. **Clone the Repository**:
+## 1. **Clone the Repository:**
 
    ```bash
    git clone git@github.com:shreyamahalle/spring-booking-management-project.git
-
+```
 ## 2. **Navigate to the Project Directory:**
 
 - cd maven-booking-management-project
