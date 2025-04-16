@@ -6,17 +6,23 @@ import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Order;
 import com.shreya.spring.service.OrderNumberService;
 import com.shreya.spring.service.OrderService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Scanner;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class OrderNumberController {
 
     OrderNumberService orderNumberService = new OrderNumberImpl();
     OrderService orderService = new OrderService();
     Order order = new Order();
-    private Customer C = new Customer() {
-
-    };
+    private Customer C = new Customer();
     private Scanner sc = new Scanner(System.in);
 
     public void run() {

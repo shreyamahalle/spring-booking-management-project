@@ -9,11 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -21,16 +20,15 @@ import java.util.Scanner;
 
 public class CustomerController {
 
-    private CustomerService customerService;
     private final Scanner sc = new Scanner(System.in);
-    //CustomerService customerService = new CustomerService();
     CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
+    private CustomerService customerService;
+
     public CustomerController(CustomerService customerService, CustomerRepository customerRepository) {
         this.customerService = customerService;
         this.customerRepository = customerRepository;
     }
-
 
     public void run() {
         int option;

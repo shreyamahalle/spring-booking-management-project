@@ -5,15 +5,24 @@ import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Order;
 import com.shreya.spring.service.CustomerService;
 import com.shreya.spring.service.OrderService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 public class OrderController {
 
-    OrderService orderService = new OrderService();
     Order order = new Order();
     private Scanner sc = new Scanner(System.in);
+    private OrderService orderService;
 
     public void run() {
         int option;

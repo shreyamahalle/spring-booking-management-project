@@ -21,13 +21,8 @@ import java.util.Scanner;
 public class CustomerService {
 
     private static CustomerRepository customerRepository = new CustomerRepository();
-    //private CustomerRepository customerRepository;
     private final Map<Integer, Customer> customers = new HashMap<>();
     Scanner sc = new Scanner(System.in);
-
-    public void setCustomerRepository(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     public static void insertCustomer(Customer customer) throws SQLException {
         customerRepository.addCustomer(customer);
@@ -58,6 +53,10 @@ public class CustomerService {
             System.out.println("Failed to update customer");
         }
 
+    }
+
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     public List<Customer> retrieveCustomers() {

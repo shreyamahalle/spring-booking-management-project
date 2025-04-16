@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="customer" class="com.shreya.spring.model.Customer">-->
-<!--        <property name="id" value="101"/>-->
-<!--        <property name="name" value="xzy"/>-->
-<!--        <property name="city" value="pune"/>-->
-<!--        <property name="mobileNo" value="234455"/>-->
-<!--        <property name="age" value="21"/>-->
-<!--    </bean>-->
+    <!--    <bean id="customer" class="com.shreya.spring.model.Customer">-->
+    <!--        <property name="id" value="101"/>-->
+    <!--        <property name="name" value="xzy"/>-->
+    <!--        <property name="city" value="pune"/>-->
+    <!--        <property name="mobileNo" value="234455"/>-->
+    <!--        <property name="age" value="21"/>-->
+    <!--    </bean>-->
 
     <!-- Repository Bean -->
     <bean id="customerRepository" class="com.shreya.spring.repository.CustomerRepository"/>
@@ -27,5 +27,13 @@
         <constructor-arg ref="customerRepository"/>
     </bean>
 
+<!--    DeliveryAgent-->
+    <!-- Define the DeliveryAgentRepository Bean -->
+    <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
+
+    <!-- Define the DeliveryAgentService Bean with a reference to the DeliveryAgentRepository -->
+    <bean id="deliveryAgentService" class="com.shreya.spring.service.DeliveryAgentService">
+        <property name="deliveryAgentRepository" ref="deliveryAgentRepository"/>
+    </bean>
 
 </beans>

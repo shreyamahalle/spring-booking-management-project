@@ -3,15 +3,23 @@ package com.shreya.spring.controller;
 import com.shreya.spring.exception.CustomerException;
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.service.RestaurantService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 
 public class RestaurantController {
 
     private final Scanner sc = new Scanner(System.in);
     Restaurant restaurant = new Restaurant();
-    private RestaurantService restaurantService = new RestaurantService();
+    private RestaurantService restaurantService;
 
     public void run() {
         int option;

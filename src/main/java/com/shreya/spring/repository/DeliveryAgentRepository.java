@@ -2,13 +2,18 @@ package com.shreya.spring.repository;
 
 import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.service.ConnectionService;
+import lombok.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Data
 public class DeliveryAgentRepository {
     private static Connection connection = null;
     Set<DeliveryAgent> deliveryAgents = new HashSet<>();

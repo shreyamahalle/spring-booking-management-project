@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public  class Customer {
+public class Customer {
 
     private int id;
     private String name;

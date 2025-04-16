@@ -4,16 +4,31 @@ import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.repository.DeliveryAgentRepository;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.*;
 
 public class DeliveryAgentService implements DeliveryAgentServiceInterface {
-    private static final DeliveryAgentRepository deliveryAgentRepository = new DeliveryAgentRepository();
+
     private static final CustomerRepository customerRepository = new CustomerRepository();
     private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
     private final Scanner sc = new Scanner(System.in);
+
+    private static DeliveryAgentRepository deliveryAgentRepository;
+
+    // Setter for deliveryAgentRepository
+    public void setDeliveryAgentRepository(DeliveryAgentRepository deliveryAgentRepository) {
+        this.deliveryAgentRepository = deliveryAgentRepository;
+    }
+
+    // Getter for deliveryAgentRepository (if needed)
+    public DeliveryAgentRepository getDeliveryAgentRepository() {
+        return deliveryAgentRepository;
+    }
 
     public static void insertDeliveryAgent() {
         Scanner scanner = new Scanner(System.in);
