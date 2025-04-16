@@ -83,9 +83,9 @@ Before you begin, ensure you have the following:
    git clone git@github.com:shreyamahalle/spring-booking-management-project.git
 ```
 ## 2. **Navigate to the Project Directory:**
-
-- cd maven-booking-management-project
-
+```bash
+ cd maven-booking-management-project
+```
 ## 3. **Open the Project in Your Preferred IDE:**
 
 - Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
