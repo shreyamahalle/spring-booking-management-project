@@ -12,7 +12,7 @@ spring-booking-management-project
 - [Contributing](#contributing)
 - [Contact](#contact)
 
-# **servlet-booking-management-project**
+# **spring-booking-management-project**
 
 Welcome to the **spring-booking-management-project**, a simple yet powerful Java application that simulates a booking
 management system. This project uses Object-Oriented Programming (OOP) principles to create a seamless experience for
