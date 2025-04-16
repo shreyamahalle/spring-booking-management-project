@@ -16,19 +16,8 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     private static final CustomerRepository customerRepository = new CustomerRepository();
     private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
-    private final Scanner sc = new Scanner(System.in);
-
     private static DeliveryAgentRepository deliveryAgentRepository;
-
-    // Setter for deliveryAgentRepository
-    public void setDeliveryAgentRepository(DeliveryAgentRepository deliveryAgentRepository) {
-        this.deliveryAgentRepository = deliveryAgentRepository;
-    }
-
-    // Getter for deliveryAgentRepository (if needed)
-    public DeliveryAgentRepository getDeliveryAgentRepository() {
-        return deliveryAgentRepository;
-    }
+    private final Scanner sc = new Scanner(System.in);
 
     public static void insertDeliveryAgent() {
         Scanner scanner = new Scanner(System.in);
@@ -71,6 +60,16 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     public static void DeliveryAgent(DeliveryAgent deliveryAgent) {
 
         deliveryAgentRepository.retrieveDeliveryAgent(1, "abc");
+    }
+
+    // Getter for deliveryAgentRepository (if needed)
+    public DeliveryAgentRepository getDeliveryAgentRepository() {
+        return deliveryAgentRepository;
+    }
+
+    // Setter for deliveryAgentRepository
+    public void setDeliveryAgentRepository(DeliveryAgentRepository deliveryAgentRepository) {
+        this.deliveryAgentRepository = deliveryAgentRepository;
     }
 
     public List<DeliveryAgent> retrieveDeliveryAgents() {

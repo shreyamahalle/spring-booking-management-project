@@ -83,17 +83,22 @@ Before you begin, ensure you have the following:
    ```bash
    git clone git@github.com:shreyamahalle/spring-booking-management-project.git
 ```
+
 ## 2. **Navigate to the Project Directory:**
+
 ```bash
  cd maven-booking-management-project
 ```
+
 ## 3. **Open the Project in Your Preferred IDE:**
+
 ```bash
 
  Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
 ```
 
 ## 4. **Set up the MySQL Database:**
+
 ```bash
   CREATE DATABASE booking_management;
   USE booking_management;

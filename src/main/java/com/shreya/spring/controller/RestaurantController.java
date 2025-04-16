@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.Scanner;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

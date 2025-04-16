@@ -1,4 +1,5 @@
 package com.shreya.spring.service;
+
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.repository.RestaurantRepository;
 import lombok.AllArgsConstructor;
@@ -11,14 +12,9 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class RestaurantService {
-    private static RestaurantRepository restaurantRepository = new RestaurantRepository();
     private static final HashMap<Integer, Restaurant> restaurants = new HashMap<>();
+    private static RestaurantRepository restaurantRepository = new RestaurantRepository();
     private static Scanner sc = new Scanner(System.in);
-
-    // Setter method for restaurantRepository
-    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
-        RestaurantService.restaurantRepository = restaurantRepository;
-    }
 
     public static List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();
@@ -97,6 +93,11 @@ public class RestaurantService {
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");
         }
+    }
+
+    // Setter method for restaurantRepository
+    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
+        RestaurantService.restaurantRepository = restaurantRepository;
     }
 
     public void printCustomer() {

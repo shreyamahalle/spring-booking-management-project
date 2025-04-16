@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -21,11 +22,6 @@ public class OrderService implements OrderNumberService {
     HashMap<Integer, Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
-    // ✅ This setter is required for Spring to inject the dependency
-    public void setOrderRepository(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-
-    }
     public static void insertOrder(Order order) throws SQLException {
         orderRepository.addOrder(order);
     }
@@ -60,6 +56,12 @@ public class OrderService implements OrderNumberService {
     public static void deleteOrder(int orderId) {
         String removeOrder = String.valueOf(orderId);
         System.out.println("remove order " + removeOrder);
+    }
+
+    // ✅ This setter is required for Spring to inject the dependency
+    public void setOrderRepository(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+
     }
 
     public List<Order> retrieveOrders() {

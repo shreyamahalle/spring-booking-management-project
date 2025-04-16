@@ -27,14 +27,17 @@
         <constructor-arg ref="customerRepository"/>
     </bean>
 
-<!--    DeliveryAgent-->
-    <!-- Define the DeliveryAgentRepository Bean -->
-    <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
+    <!--    DeliveryAgent-->
+    <bean id="deliveryAgentController" class="com.shreya.spring.controller.DeliveryAgentController">
+        <property name="deliveryAgentService" ref="deliveryAgentService"/>
+    </bean>
 
-    <!-- Define the DeliveryAgentService Bean with a reference to the DeliveryAgentRepository -->
     <bean id="deliveryAgentService" class="com.shreya.spring.service.DeliveryAgentService">
         <property name="deliveryAgentRepository" ref="deliveryAgentRepository"/>
     </bean>
+
+    <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
+
 
     <bean id="orderService" class="com.shreya.spring.service.OrderService"/>
 
@@ -44,12 +47,15 @@
     </bean>
 
     <!-- Define the repository bean -->
-    <bean id="restaurantRepository" class="com.shreya.spring.repository.RestaurantRepository"/>
+    <bean id="restaurantController" class="com.shreya.spring.controller.RestaurantController">
+        <property name="restaurantService" ref="restaurantService"/>
+    </bean>
 
-    <!-- Define the service and inject the repository -->
     <bean id="restaurantService" class="com.shreya.spring.service.RestaurantService">
         <property name="restaurantRepository" ref="restaurantRepository"/>
     </bean>
+
+    <bean id="restaurantRepository" class="com.shreya.spring.repository.RestaurantRepository"/>
 
 
 </beans>
