@@ -1,7 +1,8 @@
 package com.shreya.spring.repository;
-
 import com.shreya.spring.model.Order;
 import com.shreya.spring.service.ConnectionService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -9,9 +10,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class OrderRepository {
     private static Connection connection = null;
     Set<Order> orders = new HashSet<>();
+
 
     private void initConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {

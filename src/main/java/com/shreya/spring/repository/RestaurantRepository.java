@@ -3,12 +3,17 @@ package com.shreya.spring.repository;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.service.ConnectionService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class RestaurantRepository {
     private static Connection connection = null;

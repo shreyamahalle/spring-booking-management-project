@@ -1,17 +1,24 @@
 package com.shreya.spring.service;
-
-import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.repository.RestaurantRepository;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.SQLException;
 import java.util.*;
 
 public class RestaurantService {
-    private static final RestaurantRepository restaurantRepository = new RestaurantRepository();
+    private static RestaurantRepository restaurantRepository = new RestaurantRepository();
     private static final HashMap<Integer, Restaurant> restaurants = new HashMap<>();
     private static Scanner sc = new Scanner(System.in);
 
+    // Setter method for restaurantRepository
+    public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
+        RestaurantService.restaurantRepository = restaurantRepository;
+    }
 
     public static List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();

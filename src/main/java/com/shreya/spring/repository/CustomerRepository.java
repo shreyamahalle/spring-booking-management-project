@@ -32,8 +32,8 @@ public class CustomerRepository {
             preparedStatement.setInt(1, customer.getId());
             preparedStatement.setString(2, customer.getName());
             preparedStatement.setString(3, customer.getCity());
-            preparedStatement.setInt(4, Integer.parseInt(customer.getMobileNo()));
-            preparedStatement.setInt(4, customer.getAge());
+            preparedStatement.setInt(4, customer.getMobileNo());
+            preparedStatement.setInt(5, customer.getAge());
             System.out.println("inserting customer data to table: " + customer);
 
 

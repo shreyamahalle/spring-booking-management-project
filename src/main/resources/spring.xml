@@ -36,4 +36,20 @@
         <property name="deliveryAgentRepository" ref="deliveryAgentRepository"/>
     </bean>
 
+    <bean id="orderService" class="com.shreya.spring.service.OrderService"/>
+
+    <!-- OrderController Bean -->
+    <bean id="orderController" class="com.shreya.spring.controller.OrderController">
+        <constructor-arg ref="orderService"/>
+    </bean>
+
+    <!-- Define the repository bean -->
+    <bean id="restaurantRepository" class="com.shreya.spring.repository.RestaurantRepository"/>
+
+    <!-- Define the service and inject the repository -->
+    <bean id="restaurantService" class="com.shreya.spring.service.RestaurantService">
+        <property name="restaurantRepository" ref="restaurantRepository"/>
+    </bean>
+
+
 </beans>

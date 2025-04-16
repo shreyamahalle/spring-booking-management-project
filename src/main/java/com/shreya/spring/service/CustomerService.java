@@ -97,7 +97,7 @@ public class CustomerService {
             customer.setAge(age);
             customer.setCity(city);
             customer.setName(name);
-            customer.setMobileNo(String.valueOf(mobileNo));
+            customer.setMobileNo(mobileNo);
             customers.put(1, customer);
 
         } catch (Exception e) {

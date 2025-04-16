@@ -15,14 +15,16 @@ import java.util.Scanner;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 
 public class OrderController {
 
     Order order = new Order();
     private Scanner sc = new Scanner(System.in);
     private OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     public void run() {
         int option;

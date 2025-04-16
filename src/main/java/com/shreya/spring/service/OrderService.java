@@ -2,18 +2,30 @@ package com.shreya.spring.service;
 
 import com.shreya.spring.model.Order;
 import com.shreya.spring.repository.OrderRepository;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class OrderService implements OrderNumberService {
 
-    static OrderRepository orderRepository = new OrderRepository();
+    private static OrderRepository orderRepository = new OrderRepository();
     HashMap<Integer, Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 
+    // ✅ This setter is required for Spring to inject the dependency
+    public void setOrderRepository(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+
+    }
     public static void insertOrder(Order order) throws SQLException {
         orderRepository.addOrder(order);
     }
