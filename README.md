@@ -89,20 +89,24 @@ Before you begin, ensure you have the following:
 ## 3. **Open the Project in Your Preferred IDE:**
 ```bash
 
-- Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
+ Launch your IDE (IntelliJ, Eclipse, etc.), and open the cloned repository.
 ```
 
 ## 4. **Set up the MySQL Database:**
-
-- CREATE DATABASE booking_management;
+```bash
+  CREATE DATABASE booking_management;
   USE booking_management;
+```
 
 ## 5. **MySQL Database Setup**
 
 - To set up the database and create the necessary tables, run the following SQL queries:
-  -- Insert sample data into the Customer table
-  INSERT INTO Customer (name, username, mobileNo, city, area)
-  VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
+  ```bash
+  -Insert sample data into the Customer table
+   INSERT INTO Customer (name, username, mobileNo, city, area)
+  
+  -VALUES ('John Doe', 'johndoe123', '123-456-7890', 'New York', 'Manhattan');
+  ```
 
 ## 6. **Configure Your MySQL Connection:**
 
