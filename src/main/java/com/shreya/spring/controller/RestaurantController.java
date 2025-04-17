@@ -23,6 +23,7 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     public void run() {
+
         int option;
         do {
             System.out.println("\n---- Restaurant ----");
@@ -65,7 +66,7 @@ public class RestaurantController {
                         RestaurantService.updateRestaurant();
                         break;
 
-                    case 0:
+                        case 0:
                         System.out.println("Returning to Main Menu...");
                         break;
                     default:
