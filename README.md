@@ -15,7 +15,8 @@ spring-booking-management-project
 
 # **spring-booking-management-project**
 
-Welcome to the **Spring Booking Management Project**, a simple yet powerful Java application that simulates a booking management system. This project is built using the Spring Framework (XML-based configuration only) and applies solid Object-Oriented Programming (OOP) principles.
+Welcome to the **Spring Booking Management Project
+**, a simple yet powerful Java application that simulates a booking management system. This project is built using the Spring Framework (XML-based configuration only) and applies solid Object-Oriented Programming (OOP) principles.
 ---
 
 ## Introduction
@@ -32,7 +33,8 @@ The Spring Booking Management System provides a modular approach to managing:
 
 📦 Orders
 
-It mimics real-world operations like customer registration, restaurant assignment, order placing, and delivery tracking — all managed using a clean layered architecture (Controller → Service → Repository).
+It mimics real-world operations like customer registration, restaurant assignment, order placing, and delivery
+tracking — all managed using a clean layered architecture (Controller → Service → Repository).
 
 
 ---
