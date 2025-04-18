@@ -66,7 +66,7 @@ public class RestaurantController {
                         RestaurantService.updateRestaurant();
                         break;
 
-                        case 0:
+                    case 0:
                         System.out.println("Returning to Main Menu...");
                         break;
                     default:
