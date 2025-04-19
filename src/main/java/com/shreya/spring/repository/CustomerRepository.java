@@ -23,33 +23,38 @@ public class CustomerRepository {
             connection = new ConnectionService().getConnection();
         }
     }
-
     public boolean addCustomer(Customer customer) throws SQLException {
         this.initConnection();
-        String query = "insert into customer values (?, ?, ?, ?, ?)";
-        try {
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, customer.getId());
-                preparedStatement.setString(2, customer.getName());
-                preparedStatement.setString(3, customer.getCity());
-                preparedStatement.setInt(4, customer.getMobileNo());
-                preparedStatement.setInt(5, customer.getAge());
-                System.out.println("inserting customer data to table: " + customer);
+        String query = "INSERT INTO customer VALUES (?, ?, ?, ?, ?)";
 
-            } catch (RuntimeException e) {
-                throw new RuntimeException(e);
-            }
-        }finally { //close connection
-                if (connection != null) {
-                    try {
-                        connection.close();
-                    } catch (SQLException e) {
-                        System.err.println("Error closing connection: " + e.getMessage());
-                    }
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, customer.getId());
+            preparedStatement.setString(2, customer.getName());
+            preparedStatement.setString(3, customer.getCity());
+            preparedStatement.setInt(4, customer.getMobileNo());
+            preparedStatement.setInt(5, customer.getAge());
+
+            System.out.println("Inserting customer data to table: " + customer);
+
+            int rowsAffected = preparedStatement.executeUpdate(); // ✅ Required to execute the query
+            return rowsAffected > 0; // Return true if insertion is successful
+
+        } catch (SQLException e) {
+            System.err.println("SQL Error while inserting customer: " + e.getMessage());
+            return false;
+
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    System.err.println("Error closing connection: " + e.getMessage());
                 }
             }
-        return false;
+        }
     }
+
+
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
         String query = "SELECT * FROM customer";
@@ -119,21 +124,21 @@ public class CustomerRepository {
     }
 
     public boolean deleteCustomer(int id) throws SQLException {
-        String sql = "DELETE FROM Customer WHERE id = ?";
-
-        try {
-            this.initConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        this.initConnection();
+        String query = "DELETE FROM customer WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
-            return preparedStatement.executeUpdate() > 0;
+            int rowsAffected = preparedStatement.executeUpdate(); // Executes the delete
+            return rowsAffected > 0; // true if a row was deleted
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.err.println("Error deleting customer: " + e.getMessage());
+            return false;
         } finally {
             if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    System.err.println("connection is closed: " + e.getMessage());
+                    System.err.println("Error closing connection: " + e.getMessage());
                 }
             }
         }
@@ -163,13 +168,14 @@ public class CustomerRepository {
             }
         }
     }
+
     public void createCustomer(Customer customer) {
         try (Connection connection = ConnectionService.getConnection()) {
             // Remove the `id` field from the insert statement
             String query = "INSERT INTO customers (id,name, city, mobileNo, age) VALUES (?, ?, ?, ?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(query)) {
-                ps.setInt(1,customer.getId());
+                ps.setInt(1, customer.getId());
                 ps.setString(2, customer.getName());
                 ps.setString(3, customer.getCity());
                 ps.setInt(4, customer.getMobileNo());

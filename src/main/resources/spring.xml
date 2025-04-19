@@ -5,57 +5,46 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--    <bean id="customer" class="com.shreya.spring.model.Customer">-->
-    <!--        <property name="id" value="101"/>-->
-    <!--        <property name="name" value="xzy"/>-->
-    <!--        <property name="city" value="pune"/>-->
-    <!--        <property name="mobileNo" value="234455"/>-->
-    <!--        <property name="age" value="21"/>-->
-    <!--    </bean>-->
-
-    <!-- Repository Bean -->
+    <!-- ======= CUSTOMER ======= -->
     <bean id="customerRepository" class="com.shreya.spring.repository.CustomerRepository"/>
 
-    <!-- Service Bean -->
     <bean id="customerService" class="com.shreya.spring.service.CustomerService">
         <property name="customerRepository" ref="customerRepository"/>
     </bean>
 
-    <!-- Controller Bean -->
     <bean id="customerController" class="com.shreya.spring.controller.CustomerController">
-        <constructor-arg ref="customerService"/>
+        <property name="customerService" ref="customerService"/>
     </bean>
 
-    <!--    DeliveryAgent-->
-    <bean id="deliveryAgentController" class="com.shreya.spring.controller.DeliveryAgentController">
-        <property name="deliveryAgentService" ref="deliveryAgentService"/>
-    </bean>
+    <!-- ======= DELIVERY AGENT ======= -->
+    <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
 
     <bean id="deliveryAgentService" class="com.shreya.spring.service.DeliveryAgentService">
         <property name="deliveryAgentRepository" ref="deliveryAgentRepository"/>
     </bean>
 
-    <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
+    <bean id="deliveryAgentController" class="com.shreya.spring.controller.DeliveryAgentController">
+        <property name="deliveryAgentService" ref="deliveryAgentService"/>
+    </bean>
 
+    <!-- ======= ORDER ======= -->
     <bean id="orderRepository" class="com.shreya.spring.repository.OrderRepository"/>
 
     <bean id="orderService" class="com.shreya.spring.service.OrderService"/>
 
-    <!-- OrderController Bean -->
     <bean id="orderController" class="com.shreya.spring.controller.OrderController">
         <constructor-arg ref="orderService"/>
     </bean>
 
-    <!-- Define the repository bean -->
-    <bean id="restaurantController" class="com.shreya.spring.controller.RestaurantController">
-        <property name="restaurantService" ref="restaurantService"/>
-    </bean>
+    <!-- ======= RESTAURANT ======= -->
+    <bean id="restaurantRepository" class="com.shreya.spring.repository.RestaurantRepository"/>
 
     <bean id="restaurantService" class="com.shreya.spring.service.RestaurantService">
         <property name="restaurantRepository" ref="restaurantRepository"/>
     </bean>
 
-    <bean id="restaurantRepository" class="com.shreya.spring.repository.RestaurantRepository"/>
-
+    <bean id="restaurantController" class="com.shreya.spring.controller.RestaurantController">
+        <property name="restaurantService" ref="restaurantService"/>
+    </bean>
 
 </beans>

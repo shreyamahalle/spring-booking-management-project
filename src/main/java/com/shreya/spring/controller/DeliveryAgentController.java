@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public class DeliveryAgentController {
 
-    private final DeliveryAgent deliveryAgent = new DeliveryAgent();
     private final Scanner sc = new Scanner(System.in);
     private DeliveryAgentService deliveryAgentService;
 
@@ -41,7 +40,7 @@ public class DeliveryAgentController {
                     case 1:
                         deliveryAgentService.createDeliveryAgent();
                         deliveryAgentService.displayDeliveryAgent();
-                        System.out.println("DeliveryAgent " + deliveryAgent);
+                       // System.out.println("DeliveryAgent " + deliveryAgent);
                         break;
                     case 2:
                         deliveryAgentService.displayDeliveryAgent();

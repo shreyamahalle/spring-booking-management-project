@@ -1,14 +1,18 @@
 package com.shreya.spring.service;
+
 import com.shreya.spring.model.Restaurant;
 import com.shreya.spring.repository.RestaurantRepository;
 
 import java.sql.SQLException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 public class RestaurantService {
+
     private static final HashMap<Integer, Restaurant> restaurants = new HashMap<>();
     private static RestaurantRepository restaurantRepository;
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     public static List<Restaurant> retrieveRestaurants() {
         return restaurantRepository.retrieveRestaurants();
@@ -19,12 +23,10 @@ public class RestaurantService {
     }
 
     public static void Restaurant(Restaurant restaurant) {
-
         restaurantRepository.retrieveRestaurant(1, "abc");
     }
 
     public static void deleteRestaurant() {
-
         try {
             if (restaurantRepository.deleteRestaurant(1)) {
                 System.out.println("Restaurant deleted successfully!");
@@ -38,21 +40,19 @@ public class RestaurantService {
 
     public static void updateRestaurant() throws SQLException {
         if (restaurantRepository.updateRestaurant(2, "shreya")) {
-            System.out.println("Restaurant updated successfully ");
+            System.out.println("Restaurant updated successfully");
         } else {
             System.out.println("Failed to update Restaurant");
         }
-
     }
 
     public static void createRestaurant() {
-
         Restaurant restaurant = new Restaurant();
         restaurantRepository.createRestaurant(restaurant);
         restaurantRepository.displayRestaurant(restaurant);
         restaurantRepository.displayRestaurantToBeClosed("name");
-        try {
 
+        try {
             System.out.println("Please enter registerNo");
             int registerNo = Integer.parseInt(sc.nextLine());
 
@@ -69,32 +69,25 @@ public class RestaurantService {
             restaurant.setName(name);
             restaurant.setCity(city);
             restaurant.setArea(area);
+
             restaurants.put(1, restaurant);
+
         } catch (Exception e) {
-            System.out.println("Invalid input type correct data");
+            System.out.println("Invalid input type. Please enter correct data.");
         }
     }
 
     public static void displayRestaurant() {
         try {
-//            Set<Map.Entry<Integer, Restaurant>> entrySet = restaurants.entrySet();
-//            for (Map.Entry<Integer, Restaurant> customerEntry : entrySet) {
-//                System.out.println("Customer Info: " + restaurants);
-//            }
-            //java 8 features forEach loop..
-            restaurants.forEach((Id, restaurants) -> System.out.println("restaurant Id " + Id + " = restaurant Id " + restaurants));
-
+            restaurants.forEach((id, restaurant) ->
+                    System.out.println("Restaurant Id " + id + " = " + restaurant));
         } catch (Exception e) {
-            System.out.println("Invalid input type correct data");
+            System.out.println("Invalid input type. Please enter correct data.");
         }
     }
 
     // Setter method for restaurantRepository
     public void setRestaurantRepository(RestaurantRepository restaurantRepository) {
         RestaurantService.restaurantRepository = restaurantRepository;
-    }
-
-    public void printCustomer() {
-        System.out.println(restaurants);
     }
 }

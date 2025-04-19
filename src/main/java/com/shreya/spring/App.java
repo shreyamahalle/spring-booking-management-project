@@ -100,20 +100,5 @@ public class App {
         while (option != 0);
 
         System.out.println("THANK YOU!");
-
-//        context = new ClassPathXmlApplicationContext("spring.xml");
-//        CustomerController customerController = context.getBean("customerController", CustomerController.class);
-//
-//        customerController.run();
-
-//        DeliveryAgentController deliveryAgentController = context.getBean("deliveryAgentController", DeliveryAgentController.class);
-//        deliveryAgentController.run();
-
-//        OrderController orderController = context.getBean("orderController", OrderController.class);
-//        orderController.run();
-
-//        RestaurantController restaurantController = context.getBean("restaurantController", RestaurantController.class);
-//        restaurantController.run();
-
     }
 }

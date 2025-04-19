@@ -1,6 +1,7 @@
 package com.shreya.spring.model;
 
 import lombok.*;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

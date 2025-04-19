@@ -1,4 +1,5 @@
 package com.shreya.spring.service;
+
 import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.repository.DeliveryAgentRepository;
 
@@ -7,7 +8,6 @@ import java.util.*;
 
 public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
-    private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
     private static DeliveryAgentRepository deliveryAgentRepository;
     private final Scanner sc = new Scanner(System.in);
@@ -70,6 +70,7 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     }
 
     public void createDeliveryAgent() {
+        DeliveryAgent deliveryAgent = new DeliveryAgent();
         deliveryAgentRepository.createDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgent(deliveryAgent);
         deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);

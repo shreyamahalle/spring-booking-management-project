@@ -59,7 +59,7 @@ public class DeliveryAgentRepository {
         try {
             this.initConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
 
             int rowsAffected = preparedStatement.executeUpdate();
 

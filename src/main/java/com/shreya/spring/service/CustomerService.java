@@ -2,10 +2,7 @@ package com.shreya.spring.service;
 
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
-import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.repository.CustomerRepository;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -13,10 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-//@NoArgsConstructor
-//@AllArgsConstructor
-@Getter
-@Setter
 public class CustomerService {
 
     private static CustomerRepository customerRepository;
@@ -28,7 +21,7 @@ public class CustomerService {
         System.out.println("Pls enter customer id:");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter customer name:");
-        String  name = scanner.nextLine();
+        String name = scanner.nextLine();
         System.out.println("Pls enter city:");
         String city = scanner.nextLine();
         System.out.println("Pls enter mobileNo :");
@@ -36,7 +29,7 @@ public class CustomerService {
         System.out.println("enter age");
         int age = scanner.nextInt();
 
-        Customer customer = new Customer(id, name, city, mobileNo,age);
+        Customer customer = new Customer(id, name, city, mobileNo, age);
 
         try {
             if (customerRepository.addCustomer(customer)) {
@@ -49,17 +42,19 @@ public class CustomerService {
         }
     }
 
-
     public static void deleteCustomer() {
-
+        Scanner sc = new Scanner(System.in);
         try {
-            if (customerRepository.deleteCustomer(1)) {
+            System.out.println("Enter customer ID to delete:");
+            int id = Integer.parseInt(sc.nextLine());
+
+            if (customerRepository.deleteCustomer(id)) {
                 System.out.println("Customer deleted successfully!");
             } else {
                 System.out.println("Failed to delete Customer.");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please try again.");
         }
     }
 
@@ -123,6 +118,7 @@ public class CustomerService {
             System.out.println("Invalid input. Please check the data and try again.");
         }
     }
+
     public void displayCustomers() {
         try {
             //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();
