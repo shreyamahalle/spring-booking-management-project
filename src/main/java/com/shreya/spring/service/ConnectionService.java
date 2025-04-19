@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionService {
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             String url = "jdbc:mysql://localhost:3306/foodorder";

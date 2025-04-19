@@ -1,12 +1,8 @@
 package com.shreya.spring.service;
 
-import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.repository.DeliveryAgentRepository;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -21,17 +17,18 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
     public static void insertDeliveryAgent() {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Pls enter deliveryAgent mobileNo:");
+        int mobileNo = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter deliveryAgent id:");
         int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("Pls enter deliveryAgent name:");
+        System.out.println("Pls enter name:");
         String name = scanner.nextLine();
-        System.out.println("Pls enter city:");
+        System.out.println("Pls enter city :");
         String city = scanner.nextLine();
-        System.out.println("Pls enter mobileNo :");
-        int mobileNo = Integer.parseInt(scanner.nextLine());
 
-        Customer customer = customerRepository.retrieveCustomer(id, name);
-        DeliveryAgent deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
+
+        DeliveryAgent deliveryAgent = new DeliveryAgent(mobileNo, id, name, city);
 
         try {
             if (deliveryAgentRepository.insertDeliveryAgent(deliveryAgent)) {
@@ -83,6 +80,9 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         deliveryAgentRepository.displayDeliveryAgentToBeClosed(1);
         try {
 
+            System.out.println("Please enter mobileNo");
+            int mobileNo = Integer.parseInt(sc.nextLine());
+
             System.out.println("Please enter id");
             int id = Integer.parseInt(sc.nextLine());
 
@@ -90,15 +90,12 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
             String name = sc.nextLine();
 
             System.out.println("Please enter city");
-            String city = sc.nextLine();
+            String city = String.valueOf(Integer.parseInt(sc.nextLine()));
 
-            System.out.println("Please enter mobileNo");
-            int mobileNo = Integer.parseInt(sc.nextLine());
-
+            deliveryAgent.setMobileNo(mobileNo);
             deliveryAgent.setId(id);
             deliveryAgent.setName(name);
             deliveryAgent.setCity(city);
-            deliveryAgent.setMobileNo(mobileNo);
             deliveryAgents.put(1, deliveryAgent);
         } catch (Exception e) {
             System.out.println("Invalid input type correct data");

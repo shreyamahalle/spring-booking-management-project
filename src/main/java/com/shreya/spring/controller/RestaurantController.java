@@ -58,7 +58,7 @@ public class RestaurantController {
                     case 5:
                         System.out.println("Retrieve Restaurant");
                         RestaurantService.retrieveRestaurants().forEach(restaurant -> {
-                            System.out.println("restaurant ID: " + restaurant.getRegisterNo() + ", name: " + restaurant.getName());
+                        System.out.println("restaurant ID: " + restaurant.getRegisterNo() + ", name: " + restaurant.getName());
                         });
                         break;
                     case 6:

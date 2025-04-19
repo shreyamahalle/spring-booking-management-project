@@ -58,12 +58,11 @@ public class OrderService implements OrderNumberService {
         System.out.println("remove order " + removeOrder);
     }
 
-    // ✅ This setter is required for Spring to inject the dependency
+    // This setter is required for Spring to inject the dependency
     public void setOrderRepository(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+        OrderService.orderRepository = orderRepository;
 
     }
-
     public List<Order> retrieveOrders() {
         return orderRepository.retrieveOrders();
     }

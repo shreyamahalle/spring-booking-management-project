@@ -3,9 +3,7 @@ package com.shreya.spring.service;
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.repository.CustomerRepository;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.SQLException;
@@ -14,23 +12,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-@NoArgsConstructor
-@AllArgsConstructor
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
 public class CustomerService {
 
-    private static CustomerRepository customerRepository = new CustomerRepository();
+    private static CustomerRepository customerRepository;
     private final Map<Integer, Customer> customers = new HashMap<>();
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
 
     public static void insertCustomer(Customer customer) throws SQLException {
         customerRepository.addCustomer(customer);
-    }
-
-    public static void Customer(Customer customer) {
-
-        customerRepository.retrieveCustomer(1, "abc");
     }
 
     public static void deleteCustomer() {
@@ -56,7 +49,7 @@ public class CustomerService {
     }
 
     public void setCustomerRepository(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+        CustomerService.customerRepository = customerRepository;
     }
 
     public List<Customer> retrieveCustomers() {
@@ -70,41 +63,42 @@ public class CustomerService {
     }
 
     public void createCustomer() {
-        Customer customer = new Customer() {
-
-        };
+        Customer customer = new Customer();
         customerRepository.createCustomer(customer);
-        customerRepository.displayCustomers(customer);
         customerRepository.displayCustomerToBeClosed(1);
 
         try {
-            System.out.println("Please enter id:");
+            System.out.println("Please enter customer details:");
+
+            System.out.print("Enter ID: ");
             int id = Integer.parseInt(sc.nextLine());
 
-            System.out.println("Please enter name:");
+            System.out.print("Enter Name: ");
             String name = sc.nextLine();
 
-            System.out.println("Please enter city:");
+            System.out.print("Enter City: ");
             String city = sc.nextLine();
 
-            System.out.println("Please enter mobile number:");
+            System.out.print("Enter Mobile Number: ");
             int mobileNo = Integer.parseInt(sc.nextLine());
 
-            System.out.println("Please enter age:");
+            System.out.print("Enter Age: ");
             int age = Integer.parseInt(sc.nextLine());
 
             customer.setId(id);
-            customer.setAge(age);
-            customer.setCity(city);
             customer.setName(name);
+            customer.setCity(city);
             customer.setMobileNo(mobileNo);
-            customers.put(1, customer);
+            customer.setAge(age);
 
+            // Insert into DB
+            customerRepository.createCustomer(customer);
+
+            System.out.println("Customer created successfully!");
         } catch (Exception e) {
-            System.out.println("Invalid input type correct data");
+            System.out.println("Invalid input. Please check the data and try again.");
         }
     }
-
     public void displayCustomers() {
         try {
             //Set<Map.Entry<Integer, Customer>> entrySet = customers.entrySet();

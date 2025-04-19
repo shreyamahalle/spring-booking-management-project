@@ -37,6 +37,7 @@
 
     <bean id="deliveryAgentRepository" class="com.shreya.spring.repository.DeliveryAgentRepository"/>
 
+    <bean id="orderRepository" class="com.shreya.spring.repository.OrderRepository"/>
 
     <bean id="orderService" class="com.shreya.spring.service.OrderService"/>
 

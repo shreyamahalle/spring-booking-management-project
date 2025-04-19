@@ -3,7 +3,6 @@ package com.shreya.spring.controller;
 import com.shreya.spring.exception.CustomerException;
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
-import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.service.CustomerService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,12 +20,7 @@ import java.util.Scanner;
 public class CustomerController {
 
     private final Scanner sc = new Scanner(System.in);
-    Customer customer = new Customer();
     private CustomerService customerService;
-
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     public void run() {
 
@@ -55,9 +49,8 @@ public class CustomerController {
                         break;
                     case 3:
                         System.out.println("Performing create operation on Customer");
-                        CustomerService.insertCustomer(new Customer(101, "ABC", "pune", 908547358, 22) {
+                        CustomerService.insertCustomer(new Customer(101, "ABC", "pune", 908547358, 22));
 
-                        });
                         break;
                     case 4:
                         System.out.println("delete Customer");
