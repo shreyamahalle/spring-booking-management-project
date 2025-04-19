@@ -1,14 +1,10 @@
 package com.shreya.spring.controller;
 
 import com.shreya.spring.exception.CustomerException;
-import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Order;
-import com.shreya.spring.service.CustomerService;
 import com.shreya.spring.service.OrderService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.sql.SQLException;
 import java.util.Scanner;

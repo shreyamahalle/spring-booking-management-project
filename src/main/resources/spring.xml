@@ -24,7 +24,6 @@
     <!-- Controller Bean -->
     <bean id="customerController" class="com.shreya.spring.controller.CustomerController">
         <constructor-arg ref="customerService"/>
-        <constructor-arg ref="customerRepository"/>
     </bean>
 
     <!--    DeliveryAgent-->

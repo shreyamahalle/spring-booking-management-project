@@ -21,13 +21,11 @@ import java.util.Scanner;
 public class CustomerController {
 
     private final Scanner sc = new Scanner(System.in);
-    CustomerRepository customerRepository = new CustomerRepository();
     Customer customer = new Customer();
     private CustomerService customerService;
 
-    public CustomerController(CustomerService customerService, CustomerRepository customerRepository) {
+    public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
-        this.customerRepository = customerRepository;
     }
 
     public void run() {
@@ -51,9 +49,6 @@ public class CustomerController {
                         customerService.createCustomer();
                         customerService.displayCustomers();
                         customerService.displayCustomerInfo();
-                        customerRepository.createCustomer(customer);
-                        customerRepository.displayCustomers(customer);
-                        System.out.println("Customer created : " + customer);
                         break;
                     case 2:
                         customerService.displayCustomers();
