@@ -61,6 +61,7 @@ This project is built with the following technologies:
 - **Java**: The core programming language used for developing the application.
 - **JSP (JavaServer Pages)**: For creating dynamic web content.
 - **Servlets**: For handling requests and responses in a web environment.
+- **Spring Framework**: Used for creating a flexible and scalable application architecture, handling dependency injection, and simplifying configurations.
 - **Maven**: A project management and build automation tool to handle dependencies, building, and packaging.
 - **MySQL**: A reliable relational database system used to store customer, restaurant, delivery agent, and order data.
 - **JDBC**: Database connectivity
