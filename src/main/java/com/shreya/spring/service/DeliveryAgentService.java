@@ -1,7 +1,5 @@
 package com.shreya.spring.service;
-
 import com.shreya.spring.model.DeliveryAgent;
-import com.shreya.spring.repository.CustomerRepository;
 import com.shreya.spring.repository.DeliveryAgentRepository;
 
 import java.sql.SQLException;
@@ -9,7 +7,6 @@ import java.util.*;
 
 public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
-    private static final CustomerRepository customerRepository = new CustomerRepository();
     private static final DeliveryAgent deliveryAgent = new DeliveryAgent();
     public static Map<Integer, DeliveryAgent> deliveryAgents = new HashMap<>();
     private static DeliveryAgentRepository deliveryAgentRepository;
@@ -17,7 +14,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
 
     public static void insertDeliveryAgent() {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Pls enter deliveryAgent mobileNo:");
         int mobileNo = Integer.parseInt(scanner.nextLine());
         System.out.println("Pls enter deliveryAgent id:");
@@ -26,7 +22,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
         String name = scanner.nextLine();
         System.out.println("Pls enter city :");
         String city = scanner.nextLine();
-
 
         DeliveryAgent deliveryAgent = new DeliveryAgent(mobileNo, id, name, city);
 
@@ -105,12 +100,6 @@ public class DeliveryAgentService implements DeliveryAgentServiceInterface {
     public void displayDeliveryAgent() {
 
         try {
-
-//         Set<Map.Entry<Integer,DeliveryAgent>> entrySet = deliveryAgents.entrySet();
-//         for(Map.Entry<Integer,DeliveryAgent>customerEntry : entrySet){
-//            System.out.println("Customer Info: " + deliveryAgents );
-//          }
-
             //java 8 features forEach loop
             deliveryAgents.forEach((id, deliveryAgents) -> System.out.println("deliveryAgents Id " + id + " = deliveryAgents info " + deliveryAgents));
 

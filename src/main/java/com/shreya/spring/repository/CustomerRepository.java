@@ -24,7 +24,7 @@ public class CustomerRepository {
         }
     }
 
-    public void addCustomer(Customer customer) throws SQLException {
+    public boolean addCustomer(Customer customer) throws SQLException {
         this.initConnection();
         String query = "insert into customer values (?, ?, ?, ?, ?)";
         try {
@@ -38,7 +38,6 @@ public class CustomerRepository {
 
             } catch (RuntimeException e) {
                 throw new RuntimeException(e);
-
             }
         }finally { //close connection
                 if (connection != null) {
@@ -49,7 +48,8 @@ public class CustomerRepository {
                     }
                 }
             }
-        }
+        return false;
+    }
     public List<Customer> retrieveCustomers() {
         List<Customer> customers = new ArrayList<>();
         String query = "SELECT * FROM customer";

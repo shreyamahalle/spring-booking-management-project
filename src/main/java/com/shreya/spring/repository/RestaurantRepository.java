@@ -16,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 
 public class RestaurantRepository {
+
     private static Connection connection = null;
     Set<Restaurant> restaurants = new HashSet<>();
 

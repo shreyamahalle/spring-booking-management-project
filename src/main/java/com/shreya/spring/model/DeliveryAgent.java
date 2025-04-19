@@ -10,6 +10,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 @Data
+@Builder
 
 public class DeliveryAgent {
     public int mobileNo;

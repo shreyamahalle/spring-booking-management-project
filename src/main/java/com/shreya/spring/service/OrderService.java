@@ -18,7 +18,7 @@ import java.util.Scanner;
 @Setter
 public class OrderService implements OrderNumberService {
 
-    private static OrderRepository orderRepository = new OrderRepository();
+    private static OrderRepository orderRepository;
     HashMap<Integer, Order> orders = new HashMap<>();
     Scanner sc = new Scanner(System.in);
 

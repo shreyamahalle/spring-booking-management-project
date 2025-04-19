@@ -2,6 +2,7 @@ package com.shreya.spring.service;
 
 import com.shreya.spring.exception.CustomerNotfound;
 import com.shreya.spring.model.Customer;
+import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.repository.CustomerRepository;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +23,32 @@ public class CustomerService {
     private final Map<Integer, Customer> customers = new HashMap<>();
     private final Scanner sc = new Scanner(System.in);
 
-    public static void insertCustomer(Customer customer) throws SQLException {
-        customerRepository.addCustomer(customer);
+    public static void insertCustomer() throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Pls enter customer id:");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Pls enter customer name:");
+        String  name = scanner.nextLine();
+        System.out.println("Pls enter city:");
+        String city = scanner.nextLine();
+        System.out.println("Pls enter mobileNo :");
+        int mobileNo = scanner.nextInt();
+        System.out.println("enter age");
+        int age = scanner.nextInt();
+
+        Customer customer = new Customer(id, name, city, mobileNo,age);
+
+        try {
+            if (customerRepository.addCustomer(customer)) {
+                System.out.println("Customer inserted successfully!");
+            } else {
+                System.out.println("Failed to insert Customer.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
 
     public static void deleteCustomer() {
 

@@ -3,20 +3,19 @@ package com.shreya.spring.controller;
 import com.shreya.spring.exception.CustomerException;
 import com.shreya.spring.model.Order;
 import com.shreya.spring.service.OrderService;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 @NoArgsConstructor
-@AllArgsConstructor
 
 public class OrderController {
 
     Order order = new Order();
     private Scanner sc = new Scanner(System.in);
     private OrderService orderService;
+
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }

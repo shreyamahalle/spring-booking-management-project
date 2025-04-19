@@ -59,7 +59,7 @@ public class DeliveryAgentRepository {
         try {
             this.initConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1,id);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -89,10 +89,10 @@ public class DeliveryAgentRepository {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                int mobileNo = resultSet.getInt("mobileNo");
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String city = resultSet.getString("city");
-                int mobileNo = resultSet.getInt("mobileNo");
 
                 DeliveryAgent deliveryAgent = new DeliveryAgent(id, name, city, mobileNo);
                 deliveryAgents.add(deliveryAgent);

@@ -3,7 +3,6 @@ package com.shreya.spring.controller;
 import com.shreya.spring.exception.DeliveryAgentException;
 import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.DeliveryAgent;
-import com.shreya.spring.service.CustomerService;
 import com.shreya.spring.service.DeliveryAgentService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,9 +18,7 @@ import java.util.Scanner;
 
 public class DeliveryAgentController {
 
-    //private final DeliveryAgentService deliveryAgentService = new DeliveryAgentService();
     private final DeliveryAgent deliveryAgent = new DeliveryAgent();
-    private final Customer customer = new Customer();
     private final Scanner sc = new Scanner(System.in);
     private DeliveryAgentService deliveryAgentService;
 
