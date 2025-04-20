@@ -1,10 +1,7 @@
 package com.shreya.spring.controller;
 
 import com.shreya.spring.exception.CustomerException;
-import com.shreya.spring.impl.OrderNumberImpl;
-import com.shreya.spring.model.Customer;
 import com.shreya.spring.model.Order;
-import com.shreya.spring.service.OrderNumberService;
 import com.shreya.spring.service.OrderService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

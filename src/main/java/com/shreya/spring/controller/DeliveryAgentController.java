@@ -1,20 +1,16 @@
 package com.shreya.spring.controller;
 
 import com.shreya.spring.exception.DeliveryAgentException;
-import com.shreya.spring.model.Customer;
-import com.shreya.spring.model.DeliveryAgent;
 import com.shreya.spring.service.DeliveryAgentService;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Scanner;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 
 public class DeliveryAgentController {
 
