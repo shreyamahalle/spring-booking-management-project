@@ -1,0 +1,151 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('C:/Users/home/Downloads/foodimage.jpg.jpeg'); /* Ensure path is correct */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #333;
+    flex-direction: column; /* Stacks elements vertically */
+}
+
+/* Title Styling (for consistency with Customer Information form) */
+h1 {
+    color: #7d7d7d; /* Same color as Customer Information form */
+    font-size: 28px;
+    font-weight: normal; /* Ensures the title looks consistent with form labels */
+    margin-bottom: 20px; /* Adds space below the title */
+    text-align: center;
+    width: 100%;
+}
+
+/* Form container styling */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to let background show through */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 100%;
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #7d7d7d; /* Same as title and form labels */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Textarea specific styling */
+textarea {
+    resize: vertical;
+}
+
+/* Submit and Reset buttons styling */
+input[type="submit"],
+input[type="reset"] {
+    background-color: #b0bec5;
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #90a4ae;
+}
+
+/* Checkbox styling for "I'm not a robot" */
+label[for="notRobot"] {
+    font-size: 16px;
+    color: #7d7d7d;
+}
+
+/* Form actions layout */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-actions input {
+    width: 48%;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Additional specific form styles for each form */
+#customer-form .container,
+#delivery-agent-form .container,
+#order-form .container,
+#restaurant-form .container {
+    width: 380px;
+}
+
+/* Form-specific styles (if necessary) */
+#customer-form h1 {
+    font-size: 26px;
+}
+
+#delivery-agent-form h1 {
+    font-size: 26px;
+}
+
+#order-form h1 {
+    font-size: 26px;
+}
+
+#restaurant-form h1 {
+    font-size: 26px;
+}

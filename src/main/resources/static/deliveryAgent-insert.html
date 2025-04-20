@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Agent Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Delivery Agent Information</h1>
+<form action="/submit" method="POST">
+    <label for="id">ID:</label>
+    <input type="number" id="id" name="id" required><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br><br>
+
+    <label for="mobileNo">Mobile No:</label>
+    <input type="number" id="mobileNo" name="mobileNo" required><br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Clear">
+
+</form>
+</body>
+</html>
